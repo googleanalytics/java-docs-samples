@@ -44,16 +44,17 @@ https://cloud.google.com/docs/authentication/production#passing_the_path_to_the_
 
 To run this sample using Maven:
   cd java-analytics-admin/samples/snippets
+  mvn install
   mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartSample"
 */
 
 // [START analytics_admin_quickstart]
 
-import com.google.analytics.admin.v1alpha.Account;
-import com.google.analytics.admin.v1alpha.AnalyticsAdminServiceClient;
-import com.google.analytics.admin.v1alpha.AnalyticsAdminServiceClient.ListAccountsPage;
-import com.google.analytics.admin.v1alpha.AnalyticsAdminServiceClient.ListAccountsPagedResponse;
-import com.google.analytics.admin.v1alpha.ListAccountsRequest;
+import com.google.analytics.admin.v1beta.Account;
+import com.google.analytics.admin.v1beta.AnalyticsAdminServiceClient;
+import com.google.analytics.admin.v1beta.AnalyticsAdminServiceClient.ListAccountsPage;
+import com.google.analytics.admin.v1beta.AnalyticsAdminServiceClient.ListAccountsPagedResponse;
+import com.google.analytics.admin.v1beta.ListAccountsRequest;
 
 public class QuickstartSample {
 
