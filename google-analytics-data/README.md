@@ -36,6 +36,6 @@ These samples show how to use the
     mvn -q compile exec:java -Dexec.mainClass='com.example.analytics.QuickstartSample'
     ```
     **Tip:** You can see the complete list of available samples in the
-    [`src/main/java/com/example/analytics`][src/main/java/com/example/analytics]
+    [`src/main/java/com/example/analytics`](src/main/java/com/example/analytics)
     directory.
 
