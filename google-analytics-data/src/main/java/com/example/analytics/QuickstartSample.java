@@ -45,7 +45,7 @@ public class QuickstartSample {
      * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
      * running the sample.
      */
-    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    String propertyId = "355158046";
     sampleRunReport(propertyId);
   }
 
