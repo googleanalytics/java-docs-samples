@@ -28,7 +28,7 @@
       <dependency>
         <groupId>com.google.cloud</groupId>
         <artifactId>libraries-bom</artifactId>
-        <version>26.1.4</version>
+        <version>26.24.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -36,11 +36,9 @@
   </dependencyManagement>
 
   <dependencies>
-    <!-- TODO: switch to libraries-bom after this artifact is included -->
     <dependency>
       <groupId>com.google.analytics</groupId>
       <artifactId>google-analytics-data</artifactId>
-      <version>0.14.9</version>
     </dependency>
     <dependency>
       <groupId>com.google.auth</groupId>
