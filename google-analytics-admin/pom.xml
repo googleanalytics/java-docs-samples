@@ -5,7 +5,7 @@
   <artifactId>analytics-admin-snippets</artifactId>
   <packaging>jar</packaging>
   <name>Google Analytics Admin Snippets</name>
-  <url>https://github.com/googleapis/java-analytics-admin</url>
+  <url>https://github.com/googleapis/java-docs-samples</url>
 
   <!--
     The parent pom defines common style checks and testing strategies for our samples.
