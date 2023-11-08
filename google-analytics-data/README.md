@@ -22,7 +22,7 @@ These samples show how to use the
 3.  **Clone the repo** and cd into this directory
     ```sh
     git clone https://github.com/googleanalytics/java-docs-samples
-    cd java-docs-samples/google-analytics-admin
+    cd java-docs-samples/google-analytics-data
     ```
 4.  Confirm that [Maven](https://maven.apache.org) is installed
     ```sh
