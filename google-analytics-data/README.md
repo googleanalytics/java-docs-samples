@@ -6,7 +6,7 @@
 [shell_link]: https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleanalytics/java-docs-samples&page=editor&open_in_editor=/google-analytics-data/README.md
 
 These samples show how to use the
-[Google Analytics Data API](https://developers.google.com/analytics/devguides/reporting/data/v1) from Python.
+[Google Analytics Data API](https://developers.google.com/analytics/devguides/reporting/data/v1) from Java.
 
 ## Build and Run
 1.  **Enable APIs** - [Enable the Analytics Data API](https://console.cloud.google.com/flows/enableapi?apiid=analyticsdata.googleapis.com)
