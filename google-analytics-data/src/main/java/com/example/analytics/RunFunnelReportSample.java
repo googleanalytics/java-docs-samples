@@ -21,7 +21,6 @@ import com.google.analytics.data.v1alpha.AlphaAnalyticsDataClient;
 import com.google.analytics.data.v1alpha.DateRange;
 import com.google.analytics.data.v1alpha.Dimension;
 import com.google.analytics.data.v1alpha.DimensionHeader;
-import com.google.analytics.data.v1alpha.Funnel;
 import com.google.analytics.data.v1alpha.FunnelBreakdown;
 import com.google.analytics.data.v1alpha.FunnelEventFilter;
 import com.google.analytics.data.v1alpha.FunnelFieldFilter;
@@ -82,85 +81,97 @@ public class RunFunnelReportSample {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (AlphaAnalyticsDataClient analyticsData = AlphaAnalyticsDataClient.create()) {
-      RunFunnelReportRequest.Builder requestBuilder = RunFunnelReportRequest.newBuilder();
-      requestBuilder
-          .setProperty("properties/" + propertyId)
-          .addDateRanges(DateRange.newBuilder().setStartDate("30daysAgo").setEndDate("today"))
-          .setFunnelBreakdown(
-              FunnelBreakdown.newBuilder()
-                  .setBreakdownDimension(Dimension.newBuilder().setName("deviceCategory")));
-      Funnel.Builder funnelBuilder = requestBuilder.getFunnelBuilder();
-      funnelBuilder.addSteps(
-          FunnelStep.newBuilder()
-              .setName("First open/visit")
-              .setFilterExpression(
-                  FunnelFilterExpression.newBuilder()
-                      .setOrGroup(
-                          FunnelFilterExpressionList.newBuilder()
-                              .addExpressions(
-                                  FunnelFilterExpression.newBuilder()
-                                      .setFunnelEventFilter(
-                                          FunnelEventFilter.newBuilder()
-                                              .setEventName("first_open")))
-                              .addExpressions(
-                                  FunnelFilterExpression.newBuilder()
-                                      .setFunnelEventFilter(
-                                          FunnelEventFilter.newBuilder()
-                                              .setEventName("first_visit"))))));
-      funnelBuilder.addSteps(
-          FunnelStep.newBuilder()
-              .setName("Organic visitors")
-              .setFilterExpression(
-                  FunnelFilterExpression.newBuilder()
-                      .setFunnelFieldFilter(
-                          FunnelFieldFilter.newBuilder()
-                              .setFieldName("firstUserMedium")
-                              .setStringFilter(
-                                  StringFilter.newBuilder()
-                                      .setMatchType(MatchType.CONTAINS)
-                                      .setCaseSensitive(false)
-                                      .setValue("organic")))));
-      funnelBuilder.addSteps(
-          FunnelStep.newBuilder()
-              .setName("Session start")
-              .setFilterExpression(
-                  FunnelFilterExpression.newBuilder()
-                      .setFunnelEventFilter(
-                          FunnelEventFilter.newBuilder().setEventName("session_start"))));
+      RunFunnelReportRequest.Builder requestBuilder =
+          RunFunnelReportRequest.newBuilder()
+              .setProperty("properties/" + propertyId)
+              .addDateRanges(DateRange.newBuilder().setStartDate("30daysAgo").setEndDate("today"))
+              .setFunnelBreakdown(
+                  FunnelBreakdown.newBuilder()
+                      .setBreakdownDimension(Dimension.newBuilder().setName("deviceCategory")));
 
-      funnelBuilder.addSteps(
-          FunnelStep.newBuilder()
-              .setName("Screen/Page view")
-              .setFilterExpression(
-                  FunnelFilterExpression.newBuilder()
-                      .setOrGroup(
-                          FunnelFilterExpressionList.newBuilder()
-                              .addExpressions(
-                                  FunnelFilterExpression.newBuilder()
-                                      .setFunnelEventFilter(
-                                          FunnelEventFilter.newBuilder()
-                                              .setEventName("screen_view")))
-                              .addExpressions(
-                                  FunnelFilterExpression.newBuilder()
-                                      .setFunnelEventFilter(
-                                          FunnelEventFilter.newBuilder()
-                                              .setEventName("page_view"))))));
-      funnelBuilder.addSteps(
-          FunnelStep.newBuilder()
-              .setName("Purchase")
-              .setFilterExpression(
-                  FunnelFilterExpression.newBuilder()
-                      .setOrGroup(
-                          FunnelFilterExpressionList.newBuilder()
-                              .addExpressions(
-                                  FunnelFilterExpression.newBuilder()
-                                      .setFunnelEventFilter(
-                                          FunnelEventFilter.newBuilder().setEventName("purchase")))
-                              .addExpressions(
-                                  FunnelFilterExpression.newBuilder()
-                                      .setFunnelEventFilter(
-                                          FunnelEventFilter.newBuilder()
-                                              .setEventName("in_app_purchase"))))));
+      // Adds each step of the funnel.
+      requestBuilder
+          .getFunnelBuilder()
+          .addSteps(
+              FunnelStep.newBuilder()
+                  .setName("First open/visit")
+                  .setFilterExpression(
+                      FunnelFilterExpression.newBuilder()
+                          .setOrGroup(
+                              FunnelFilterExpressionList.newBuilder()
+                                  .addExpressions(
+                                      FunnelFilterExpression.newBuilder()
+                                          .setFunnelEventFilter(
+                                              FunnelEventFilter.newBuilder()
+                                                  .setEventName("first_open")))
+                                  .addExpressions(
+                                      FunnelFilterExpression.newBuilder()
+                                          .setFunnelEventFilter(
+                                              FunnelEventFilter.newBuilder()
+                                                  .setEventName("first_visit"))))));
+      requestBuilder
+          .getFunnelBuilder()
+          .addSteps(
+              FunnelStep.newBuilder()
+                  .setName("Organic visitors")
+                  .setFilterExpression(
+                      FunnelFilterExpression.newBuilder()
+                          .setFunnelFieldFilter(
+                              FunnelFieldFilter.newBuilder()
+                                  .setFieldName("firstUserMedium")
+                                  .setStringFilter(
+                                      StringFilter.newBuilder()
+                                          .setMatchType(MatchType.CONTAINS)
+                                          .setCaseSensitive(false)
+                                          .setValue("organic")))));
+      requestBuilder
+          .getFunnelBuilder()
+          .addSteps(
+              FunnelStep.newBuilder()
+                  .setName("Session start")
+                  .setFilterExpression(
+                      FunnelFilterExpression.newBuilder()
+                          .setFunnelEventFilter(
+                              FunnelEventFilter.newBuilder().setEventName("session_start"))));
+
+      requestBuilder
+          .getFunnelBuilder()
+          .addSteps(
+              FunnelStep.newBuilder()
+                  .setName("Screen/Page view")
+                  .setFilterExpression(
+                      FunnelFilterExpression.newBuilder()
+                          .setOrGroup(
+                              FunnelFilterExpressionList.newBuilder()
+                                  .addExpressions(
+                                      FunnelFilterExpression.newBuilder()
+                                          .setFunnelEventFilter(
+                                              FunnelEventFilter.newBuilder()
+                                                  .setEventName("screen_view")))
+                                  .addExpressions(
+                                      FunnelFilterExpression.newBuilder()
+                                          .setFunnelEventFilter(
+                                              FunnelEventFilter.newBuilder()
+                                                  .setEventName("page_view"))))));
+      requestBuilder
+          .getFunnelBuilder()
+          .addSteps(
+              FunnelStep.newBuilder()
+                  .setName("Purchase")
+                  .setFilterExpression(
+                      FunnelFilterExpression.newBuilder()
+                          .setOrGroup(
+                              FunnelFilterExpressionList.newBuilder()
+                                  .addExpressions(
+                                      FunnelFilterExpression.newBuilder()
+                                          .setFunnelEventFilter(
+                                              FunnelEventFilter.newBuilder()
+                                                  .setEventName("purchase")))
+                                  .addExpressions(
+                                      FunnelFilterExpression.newBuilder()
+                                          .setFunnelEventFilter(
+                                              FunnelEventFilter.newBuilder()
+                                                  .setEventName("in_app_purchase"))))));
 
       // Make the request.
       RunFunnelReportResponse response = analyticsData.runFunnelReport(requestBuilder.build());
