@@ -27,7 +27,7 @@ Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
 To run this sample using Maven:
-  cd java-analytics-data/samples/snippets
+  cd google-analytics-data
   mvn compile
   mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportSample"
  */

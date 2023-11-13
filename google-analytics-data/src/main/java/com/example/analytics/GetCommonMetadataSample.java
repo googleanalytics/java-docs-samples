@@ -23,7 +23,7 @@ See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1b
 for more information.
 
 To run this sample using Maven:
-  cd java-analytics-data/samples/snippets
+  cd google-analytics-data
   mvn compile
   mvn exec:java -Dexec.mainClass="com.example.analytics.GetCommonMetadataSample"
  */
