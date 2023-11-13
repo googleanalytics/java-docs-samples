@@ -68,9 +68,9 @@ import java.util.regex.Pattern;
  */
 // [START analyticsdata_quickstart_oauth2]
 public class QuickstartOAuth2Sample {
-  // Scopes for the generated OAuth2 credentials. The list here only contains the Google Ads API
-  // scope, but you can add multiple scopes if you want to use the credentials for other Google
-  // APIs.
+  // Scopes for the generated OAuth2 credentials. The list here consists of just the read-only
+  // Google Analytics Data API scope, but you can add multiple scopes if you want to use the
+  // credentials for other Google APIs.
   private static final ImmutableList<String> SCOPES =
       ImmutableList.<String>builder()
           .add("https://www.googleapis.com/auth/analytics.readonly")
@@ -90,6 +90,11 @@ public class QuickstartOAuth2Sample {
   // a simple report
   // on the provided GA4 property id.
   static void sampleGetCredentialsAndRunReport(String propertyId) throws Exception {
+    // TODO(developer): Download the OAuth 2.0 client ID JSON from
+    // https://console.cloud.google.com/apis/credentials for a Desktop or Web client, and save it in
+    // the java-docs-samples/google-analytics-data directory in a file named oauth2.keys.json.
+    // If using a Web client, register http://127.0.0.1 as an authorized redirect URI.
+
     // Extracts the OAuth client information from the provided file.
     ClientId parsedClient = ClientId.fromStream(new FileInputStream("./oauth2.keys.json"));
     // Creates an anti-forgery state token as described here:
@@ -132,17 +137,19 @@ public class QuickstartOAuth2Sample {
       throw new IllegalStateException("State does not match expected state");
     }
 
-    // Exchanges the authorization code for credentials and print the refresh token.
+    // Exchanges the authorization code for credentials.
     UserCredentials userCredentials =
         userAuthorizer.getCredentialsFromCode(authorizationResponse.code, baseUri);
     System.out.printf("Successfully obtained user credentials for scope(s): %s%n", SCOPES);
 
-    // Constructs a BetaAnalyticsDataClient using the UserCredentials obtained.
+    // Constructs a BetaAnalyticsDataClient using a settings object that will use the
+    // credentials obtained above instead of the Application Default Credentials.
+    BetaAnalyticsDataSettings betaAnalyticsDataSettings =
+        BetaAnalyticsDataSettings.newBuilder()
+            .setCredentialsProvider(FixedCredentialsProvider.create(userCredentials))
+            .build();
     try (BetaAnalyticsDataClient analyticsData =
-        BetaAnalyticsDataClient.create(
-            BetaAnalyticsDataSettings.newBuilder()
-                .setCredentialsProvider(FixedCredentialsProvider.create(userCredentials))
-                .build())) {
+        BetaAnalyticsDataClient.create(betaAnalyticsDataSettings)) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
