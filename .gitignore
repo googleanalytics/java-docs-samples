@@ -22,3 +22,5 @@ __pycache__
 
 .flattened-pom.xml
 
+# Sample input files
+google-analytics-data/oauth2.keys.json
