@@ -27,3 +27,16 @@ information on using pull requests.
 This project follows [Google's Open Source Community
 Guidelines](https://opensource.google.com/conduct/).
 
+## Running the tests
+
+1.  Configure your environment and credentials as described in the
+    [README](README.md).
+2.  Determine which GA4 property you want to use for tests, and note its
+    property ID.
+3.  Change into the directory of the project you want to test (either
+    `google-analytics-admin` or `google-analytics-data`).
+4.  Execute tests using the following command:
+
+    ```sh
+    mvn -Danalyticsdata.quickstart.ga4PropertyId=YOUR-GA4-PROPERTY-ID test
+    ```
