@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.google.analytics</groupId>
-  <artifactId>analytics-admin-snippets</artifactId>
+  <artifactId>analytics-admin-samples</artifactId>
   <packaging>jar</packaging>
-  <name>Google Analytics Admin Snippets</name>
-  <url>https://github.com/googleapis/java-docs-samples</url>
+  <name>Google Analytics Admin Samples</name>
+  <url>https://github.com/googleanalytics/java-docs-samples</url>
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
