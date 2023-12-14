@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.analytics;
+package com.google.analytics.admin.samples;
 
 /* This application demonstrates the usage of the Analytics Admin API using
 service account credentials. For more information on service accounts, see
