@@ -60,11 +60,10 @@ import java.util.regex.Pattern;
  *
  * <p>To run this sample using Maven:
  *
- * <pre>
+ * <pre>{@code
  * cd google-analytics-data
- * mvn compile
- * mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartOAuth2Sample"
- * </pre>
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.QuickstartOAuth2Sample"
+ * }</pre>
  */
 // [START analyticsdata_quickstart_oauth2]
 public class QuickstartOAuth2Sample {

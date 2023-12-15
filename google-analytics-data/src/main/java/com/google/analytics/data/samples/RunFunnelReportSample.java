@@ -36,19 +36,22 @@ import com.google.analytics.data.v1alpha.SamplingMetadata;
 import com.google.analytics.data.v1alpha.StringFilter;
 import com.google.analytics.data.v1alpha.StringFilter.MatchType;
 
-/* Google Analytics Data API sample application demonstrating the creation
-of a funnel report.
-
-See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1alpha/properties/runFunnelReport
-for more information.
-
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunFunnelReportSample"
+/**
+ * Google Analytics Data API sample application demonstrating the creation of a funnel report.
+ *
+ * <p>See
+ * https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1alpha/properties/runFunnelReport
+ * for more information.
+ *
+ * <p>Before you start the application, please review the comments starting with "TODO(developer)"
+ * and update the code to use correct values.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.RunFunnelReportSample"
+ * }</pre>
  */
 public class RunFunnelReportSample {
 

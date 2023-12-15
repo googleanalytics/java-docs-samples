@@ -16,22 +16,6 @@
 
 package com.google.analytics.data.samples;
 
-/* Google Analytics Data API sample application demonstrating the creation of
-a pivot report.
-
-See
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runPivotReport
-for more information.
-
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunPivotReportSample"
- */
-
 // [START analyticsdata_run_pivot_report]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
@@ -46,6 +30,23 @@ import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunPivotReportRequest;
 import com.google.analytics.data.v1beta.RunPivotReportResponse;
 
+/**
+ * Google Analytics Data API sample application demonstrating the creation of a pivot report.
+ *
+ * <p>See
+ * https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runPivotReport
+ * for more information.
+ *
+ * <p>Before you start the application, please review the comments starting with "TODO(developer)"
+ * and update the code to use correct values.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.RunPivotReportSample"
+ * }</pre>
+ */
 public class RunPivotReportSample {
 
   public static void main(String... args) throws Exception {

@@ -16,22 +16,6 @@
 
 package com.google.analytics.data.samples;
 
-/* Google Analytics Data API sample application demonstrating the creation
-of a basic report.
-
-See
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
-for more information.
-
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportSample"
- */
-
 // [START analyticsdata_run_report]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
@@ -43,6 +27,23 @@ import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
+/**
+ * Google Analytics Data API sample application demonstrating the creation of a basic report.
+ *
+ * <p>See
+ * https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
+ * for more information.
+ *
+ * <p>Before you start the application, please review the comments starting with "TODO(developer)"
+ * and update the code to use correct values.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.RunReportSample"
+ * }</pre>
+ */
 public class RunReportSample {
 
   public static void main(String... args) throws Exception {

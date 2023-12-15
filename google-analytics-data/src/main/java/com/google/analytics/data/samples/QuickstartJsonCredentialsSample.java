@@ -16,21 +16,6 @@
 
 package com.google.analytics.data.samples;
 
-/* Google Analytics Data API sample quickstart application.
-
-This application demonstrates the usage of the Analytics Data API using
-service account credentials from a JSON file downloaded from
-the Google Cloud Console.
-
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartJsonCredentialsSample"
- */
-
 // [START analyticsdata_json_credentials_quickstart]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.BetaAnalyticsDataSettings;
@@ -44,6 +29,22 @@ import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.GoogleCredentials;
 import java.io.FileInputStream;
 
+/**
+ * Google Analytics Data API sample quickstart application.
+ *
+ * <p>This application demonstrates the usage of the Analytics Data API using service account
+ * credentials from a JSON file downloaded from the Google Cloud Console.
+ *
+ * <p>Before you start the application, please review the comments starting with "TODO(developer)"
+ * and update the code to use correct values.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.QuickstartJsonCredentialsSample"
+ * }</pre>
+ */
 public class QuickstartJsonCredentialsSample {
 
   public static void main(String... args) throws Exception {

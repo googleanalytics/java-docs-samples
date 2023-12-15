@@ -16,26 +16,27 @@
 
 package com.google.analytics.data.samples;
 
-/* Google Analytics Data API sample application retrieving dimension and metrics
-metadata.
-
-See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
-for more information.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.GetCommonMetadataSample"
- */
-
 // [START analyticsdata_get_common_metadata]
-
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DimensionMetadata;
 import com.google.analytics.data.v1beta.GetMetadataRequest;
 import com.google.analytics.data.v1beta.Metadata;
 import com.google.analytics.data.v1beta.MetricMetadata;
 
+/**
+ * Google Analytics Data API sample application retrieving dimension and metrics metadata.
+ *
+ * <p>See
+ * https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
+ * for more information.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.GetCommonMetadataSample"
+ * }</pre>
+ */
 public class GetCommonMetadataSample {
 
   public static void main(String... args) throws Exception {

@@ -16,22 +16,6 @@
 
 package com.google.analytics.data.samples;
 
-/* Google Analytics Data API sample application demonstrating the batch creation
-of multiple reports.
-
-See
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/batchRunReports
-for more information.
-
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunBatchReportSample"
- */
-
 // [START analyticsdata_run_batch_report]
 
 import com.google.analytics.data.v1beta.BatchRunReportsRequest;
@@ -43,6 +27,24 @@ import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
+/**
+ * Google Analytics Data API sample application demonstrating the batch creation of multiple
+ * reports.
+ *
+ * <p>See
+ * https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/batchRunReports
+ * for more information.
+ *
+ * <p>Before you start the application, please review the comments starting with "TODO(developer)"
+ * and update the code to use correct values.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.RunBatchReportSample"
+ * }</pre>
+ */
 public class RunBatchReportSample {
 
   public static void main(String... args) throws Exception {

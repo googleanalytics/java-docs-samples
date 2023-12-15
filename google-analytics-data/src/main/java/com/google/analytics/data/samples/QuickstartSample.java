@@ -16,19 +16,6 @@
 
 package com.google.analytics.data.samples;
 
-/* Google Analytics Data API sample quickstart application.
-
-This application demonstrates the usage of the Analytics Data API using service account credentials.
-
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
-To run this sample using Maven:
-  cd google-analytics-data
-  mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartSample"
- */
-
 // [START analyticsdata_quickstart]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
@@ -38,6 +25,22 @@ import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
+/**
+ * Google Analytics Data API sample quickstart application.
+ *
+ * <p>This application demonstrates the usage of the Analytics Data API using service account
+ * credentials.
+ *
+ * <p>Before you start the application, please review the comments starting with "TODO(developer)"
+ * and update the code to use correct values.
+ *
+ * <p>To run this sample using Maven:
+ *
+ * <pre>{@code
+ * cd google-analytics-data
+ * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.QuickstartSample"
+ * }</pre>
+ */
 public class QuickstartSample {
 
   public static void main(String... args) throws Exception {
