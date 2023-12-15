@@ -33,7 +33,7 @@ These samples show how to use the
 6.  **Run** with the command `mvn compile exec:java
     -Dexec.mainClass=FULLY_QUALIFIED_SAMPLE_CLASS_NAME`. For example:
     ```sh
-    mvn -q compile exec:java -Dexec.mainClass='com.example.analytics.QuickstartSample'
+    mvn -q compile exec:java -Dexec.mainClass='com.google.analytics.admin.samples.QuickstartSample'
     ```
 
 [adc]: https://cloud.google.com/docs/authentication#adc

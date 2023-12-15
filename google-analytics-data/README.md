@@ -34,10 +34,10 @@ These samples show how to use the
 6.  **Run** with the command `mvn compile exec:java
     -Dexec.mainClass=FULLY_QUALIFIED_SAMPLE_CLASS_NAME`. For example:
     ```sh
-    mvn -q compile exec:java -Dexec.mainClass='com.example.analytics.QuickstartSample'
+    mvn -q compile exec:java -Dexec.mainClass='com.google.analytics.data.samples.QuickstartSample'
     ```
     **Tip:** You can see the complete list of available samples in the
-    [`src/main/java/com/example/analytics`](src/main/java/com/example/analytics)
+    [`src/main/java/com/google/analytics/data/samples`](src/main/java/com/example/analytics)
     directory.
 
 [adc]: https://cloud.google.com/docs/authentication#adc
