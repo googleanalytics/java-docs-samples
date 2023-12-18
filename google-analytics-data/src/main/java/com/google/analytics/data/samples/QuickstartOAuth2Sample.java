@@ -16,6 +16,7 @@
 
 package com.google.analytics.data.samples;
 
+// [START analyticsdata_quickstart_oauth2]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.BetaAnalyticsDataSettings;
 import com.google.analytics.data.v1beta.DateRange;
@@ -65,7 +66,6 @@ import java.util.regex.Pattern;
  * mvn compile exec:java -Dexec.mainClass="com.google.analytics.data.samples.QuickstartOAuth2Sample"
  * }</pre>
  */
-// [START analyticsdata_quickstart_oauth2]
 public class QuickstartOAuth2Sample {
   // Scopes for the generated OAuth2 credentials. The list here consists of just the read-only
   // Google Analytics Data API scope, but you can add multiple scopes if you want to use the
