@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.analytics;
+package com.google.analytics.admin.samples;
 
 import static com.google.common.truth.Truth.assertThat;
 

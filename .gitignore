@@ -1,0 +1,26 @@
+*.swp
+
+# Maven
+target/
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Intellij
+*.iml
+.idea/
+
+# VS Code
+.vscode/
+bin/
+
+# python utilities
+*.pyc
+__pycache__
+
+.flattened-pom.xml
+
+# Sample input files
+google-analytics-data/oauth2.keys.json
