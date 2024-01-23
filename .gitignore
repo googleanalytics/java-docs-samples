@@ -11,6 +11,7 @@ target/
 # Intellij
 *.iml
 .idea/
+.run/
 
 # VS Code
 .vscode/
