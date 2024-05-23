@@ -3,6 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.google.analytics</groupId>
   <artifactId>analytics-data-samples</artifactId>
+  <version>1.3.0</version>
   <packaging>jar</packaging>
   <name>Google Analytics Data Samples</name>
   <url>https://github.com/googleanalytics/java-docs-samples</url>
@@ -12,16 +13,6 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
-
-  <!--
-    The parent pom defines common style checks and testing strategies for our samples.
-    Removing or replacing it should not affect the execution of the samples in anyway.
-  -->
-  <parent>
-    <groupId>com.google.cloud.samples</groupId>
-    <artifactId>shared-configuration</artifactId>
-    <version>1.2.0</version>
-  </parent>
 
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
