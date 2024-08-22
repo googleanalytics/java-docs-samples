@@ -60,7 +60,7 @@ public class RunRealtimeReportWithMultipleMetricsSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("unifiedScreenName"))
               .addMetrics(Metric.newBuilder().setName(("screenPageViews")))
-              .addMetrics(Metric.newBuilder().setName("conversions"))
+              .addMetrics(Metric.newBuilder().setName("keyEvents"))
               .build();
 
       // Make the request.
