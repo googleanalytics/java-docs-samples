@@ -69,7 +69,10 @@ public class QuickstartJsonCredentialsSample {
     // Explicitly use service account credentials by specifying
     // the private key file.
     GoogleCredentials credentials =
-        GoogleCredentials.fromStream(new FileInputStream(credentialsJsonPath));
+        GoogleCredentials.fromStream(new FileInputStream(credentialsJsonPath))
+            .createScoped(
+                "https://www.googleapis.com/auth/analytics.readonly",
+                "https://www.googleapis.com/auth/analytics");
 
     BetaAnalyticsDataSettings betaAnalyticsDataSettings =
         BetaAnalyticsDataSettings.newBuilder()
