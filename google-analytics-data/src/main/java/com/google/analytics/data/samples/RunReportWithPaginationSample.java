@@ -53,54 +53,45 @@ public class RunReportWithPaginationSample {
 
   // Runs a report several times, each time retrieving a portion of result using pagination.
   static void sampleRunReportWithPagination(String propertyId) throws Exception {
-    // Initialize client that will be used to send requests. This client only needs to be created
-    // once, and can be reused for multiple requests. After completing all of your requests, call
-    // the "close" method on the client to safely clean up any remaining background resources.
+    // Creates the request builder that all requests will use. Each request will set the `offset` to
+    // paginate through the pages of results.
+    RunReportRequest.Builder requestBuilder =
+        RunReportRequest.newBuilder()
+            .setProperty("properties/" + propertyId)
+            .addDateRanges(
+                DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("yesterday"))
+            .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
+            .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
+            .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
+            .addMetrics(Metric.newBuilder().setName("sessions"))
+            .addMetrics(Metric.newBuilder().setName("keyEvents"))
+            .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+            .setLimit(100_000);
+
+    // Initializes client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. Wraps creation of the client in a
+    // try-with-resources block so that after completing all of your requests, the JVM will
+    // automatically call the "close" method on the client to safely clean up any remaining
+    // background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-      // [START analyticsdata_run_report_with_pagination_page1]
-      RunReportRequest request =
-          RunReportRequest.newBuilder()
-              .setProperty("properties/" + propertyId)
-              .addDateRanges(
-                  DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("yesterday"))
-              .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
-              .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
-              .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
-              .addMetrics(Metric.newBuilder().setName("sessions"))
-              .addMetrics(Metric.newBuilder().setName("keyEvents"))
-              .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-              .setLimit(100000)
-              .setOffset(0)
-              .build();
+      // [START analyticsdata_run_report_with_pagination]
+      int offset = 0;
+      int totalRowCount;
+      do {
+        RunReportRequest request = requestBuilder.setOffset(offset).build();
 
-      // Make the request.
-      RunReportResponse response = analyticsData.runReport(request);
-      RunReportSample.printRunResponseResponse(response);
-      // [END analyticsdata_run_report_with_pagination_page1]
+        // Makes the request.
+        RunReportResponse response = analyticsData.runReport(request);
+        // Prints the response.
+        RunReportSample.printRunResponseResponse(response);
 
-      // Run the same report with a different offset value to retrieve the second page of a
-      // response.
-      // [START analyticsdata_run_report_with_pagination_page2]
-      request =
-          RunReportRequest.newBuilder()
-              .setProperty("properties/" + propertyId)
-              .addDateRanges(
-                  DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("yesterday"))
-              .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
-              .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
-              .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
-              .addMetrics(Metric.newBuilder().setName("sessions"))
-              .addMetrics(Metric.newBuilder().setName("keyEvents"))
-              .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-              .setLimit(100000)
-              .setOffset(100000)
-              .build();
-
-      // Make the request.
-      response = analyticsData.runReport(request);
-      // Prints the response using a method in RunReportSample.java
-      RunReportSample.printRunResponseResponse(response);
-      // [END analyticsdata_run_report_with_pagination_page2]
+        // Gets the row count for the complete result set across all pages. This will be the same
+        // for all requests.
+        totalRowCount = response.getRowCount();
+        // Increments the offset in preparation for the next request.
+        offset += response.getRowsCount();
+      } while (offset < totalRowCount);
+      // [END analyticsdata_run_report_with_pagination]
     }
   }
 }
